@@ -1,0 +1,222 @@
+:root {
+  color-scheme: light;
+  --bg: #f7edd7;
+  --panel: #ffffff;
+  --ink: #202020;
+  --muted: #66605a;
+  --accent-a: #e66ad8;
+  --accent-b: #6a91f3;
+  --border: #d8d2c8;
+  --danger: #b2433e;
+  --ok: #287a54;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--bg); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: linear-gradient(180deg, #fff 0 13rem, var(--bg) 13rem 100%);
+  min-height: 100vh;
+}
+
+button, input, label { font: inherit; }
+button, label[for] { -webkit-tap-highlight-color: transparent; }
+
+.app-shell {
+  width: min(100%, 46rem);
+  margin: 0 auto;
+  padding: env(safe-area-inset-top) 1rem calc(2rem + env(safe-area-inset-bottom));
+}
+
+.hero {
+  min-height: 13rem;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 1.5rem 0.5rem 1rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.45rem;
+  font-weight: 800;
+  color: #dd5b1f;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: #ef5d26;
+  text-shadow: 0 3px 0 #fff, 0 6px 0 #5f91ed;
+}
+
+h1 span { color: #ed3aa5; }
+
+.hero-copy {
+  margin: 1rem 0 0;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 1.6rem;
+  padding: 1.4rem;
+  margin: 0 0 1rem;
+  box-shadow: 0 0.35rem 1.2rem rgba(85, 67, 35, 0.08);
+}
+
+.panel h2 { margin: 0 0 0.7rem; font-size: 1.35rem; }
+.panel p { line-height: 1.65; }
+
+.capture-panel { text-align: center; }
+
+input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.primary-button,
+.secondary-button {
+  min-height: 4.25rem;
+  border-radius: 1.35rem;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.primary-button {
+  color: #fff;
+  background: linear-gradient(100deg, var(--accent-a), var(--accent-b));
+  padding: 0.9rem 1.2rem;
+}
+
+.capture-panel .primary-button {
+  width: 100%;
+  font-size: 1.35rem;
+  margin-top: 0.5rem;
+}
+
+.primary-button:active,
+.secondary-button:active { transform: translateY(1px); }
+
+.privacy-note {
+  margin: 0.8rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.work-panel[hidden] { display: none; }
+
+.preview-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: #e6e6e6;
+  display: grid;
+  place-items: center;
+}
+
+.preview-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.status-box {
+  margin: 1rem 0;
+  display: grid;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+progress { width: 100%; height: 0.8rem; }
+
+.field-label {
+  display: block;
+  margin: 1rem 0 0.55rem;
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.serial-input {
+  width: 100%;
+  min-height: 4.5rem;
+  border: 3px solid #77736e;
+  border-radius: 1.1rem;
+  padding: 0.7rem 0.9rem;
+  font: 500 clamp(1.35rem, 5.5vw, 2rem) ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.serial-input:focus { outline: 4px solid rgba(106, 145, 243, 0.25); }
+
+.validation-message {
+  margin: 0.45rem 0 1rem;
+  color: var(--danger);
+  font-size: 0.92rem;
+}
+
+.validation-message.valid { color: var(--ok); }
+
+.button-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 0.75rem;
+}
+
+.secondary-button {
+  color: var(--ink);
+  background: #fff;
+  border: 3px solid #5e5a55;
+  padding: 0.7rem;
+}
+
+.button-grid .primary-button { width: 100%; }
+
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.text-button {
+  display: block;
+  margin: 1.1rem auto 0;
+  background: transparent;
+  border: 0;
+  color: #9f3f3a;
+  text-decoration: underline;
+  padding: 0.65rem;
+  cursor: pointer;
+}
+
+.help-panel ul {
+  margin: 0;
+  padding-left: 1.3rem;
+  line-height: 1.8;
+}
+
+.official-note {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 420px) {
+  .app-shell { padding-inline: 0.65rem; }
+  .panel { padding: 1rem; border-radius: 1.25rem; }
+  .button-grid { grid-template-columns: 1fr; }
+}
