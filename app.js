@@ -18,6 +18,7 @@ const historyCount = document.getElementById('history-count');
 const deleteAllButton = document.getElementById('delete-all-button');
 const processingCanvas = document.getElementById('processing-canvas');
 const storageCanvas = document.getElementById('storage-canvas');
+const RESULT_FACE_SRC = 'UI_fig_01anzu.png';
 
 let busy = false;
 let items = [];
@@ -333,10 +334,20 @@ function createHistoryCard(item) {
   date.textContent = new Intl.DateTimeFormat('ja-JP', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' }).format(item.createdAt);
   header.append(number, date);
 
+  const preview = document.createElement('div');
+  preview.className = 'history-preview';
+
   const image = document.createElement('img');
   image.className = 'history-image';
   image.src = getObjectUrl(item);
   image.alt = '撮影したシリアルコードの確認用画像';
+
+  const face = document.createElement('img');
+  face.className = 'history-face';
+  face.src = RESULT_FACE_SRC;
+  face.alt = '';
+  face.setAttribute('aria-hidden', 'true');
+  preview.append(image, face);
 
   const label = document.createElement('label');
   label.className = 'field-label';
@@ -440,7 +451,7 @@ function createHistoryCard(item) {
   });
 
   refreshValidation();
-  card.append(header, image, label, input, validation, buttonGrid, deleteButton);
+  card.append(header, preview, label, input, validation, buttonGrid, deleteButton);
   return card;
 }
 

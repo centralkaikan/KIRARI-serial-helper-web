@@ -63,6 +63,19 @@ button, label[for] { -webkit-tap-highlight-color: transparent; }
 
 .capture-panel { text-align: center; }
 
+.capture-guide {
+  margin: 0 0 1rem;
+  text-align: center;
+  font-size: clamp(1rem, 2.9vw, 1.25rem);
+  line-height: 1.9;
+  font-weight: 500;
+}
+
+.capture-guide br {
+  display: block;
+  content: "";
+}
+
 input[type="file"] {
   position: absolute;
   width: 1px;
@@ -240,5 +253,19 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
   object-fit: contain;
   background: #e7e7e7;
   border-radius: 1.25rem;
+}
+
+.history-preview {
+  position: relative;
+}
+
+.history-face {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  width: clamp(78px, 22vw, 132px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
 }
 .text-button.danger { color: var(--danger); }
