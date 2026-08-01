@@ -220,3 +220,38 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
   .panel { padding: 1rem; border-radius: 1.25rem; }
   .button-grid { grid-template-columns: 1fr; }
 }
+
+.history-section { margin-top: 1.2rem; }
+.section-heading, .card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.section-heading { padding: 0 0.35rem 0.5rem; }
+.section-heading h2, .section-heading p { margin: 0; }
+.section-heading p { color: var(--muted); font-weight: 700; }
+.empty-state { text-align: center; color: var(--muted); }
+.empty-state[hidden] { display: none; }
+.history-list { display: grid; gap: 1rem; }
+.history-card { margin-bottom: 0; }
+.card-heading { margin-bottom: 0.8rem; color: var(--muted); font-weight: 700; }
+.card-number {
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 2px solid var(--accent-a);
+  color: var(--accent-a);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+}
+.history-image {
+  display: block;
+  width: 100%;
+  max-height: 24rem;
+  object-fit: contain;
+  background: #e7e7e7;
+  border-radius: 1.25rem;
+}
+.text-button.danger { color: var(--danger); }

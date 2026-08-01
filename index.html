@@ -23,29 +23,25 @@
       <p>「シリアルコード」の文字とコード部分が、なるべく正面から大きく写るように撮影してください。</p>
       <label class="primary-button" for="image-input">写真を撮る・選ぶ</label>
       <input id="image-input" type="file" accept="image/*" capture="environment">
-      <p class="privacy-note">写真は端末のブラウザ内で処理し、外部サーバーへ送信しません。</p>
-    </section>
-
-    <section id="work-panel" class="panel work-panel" aria-live="polite" hidden>
-      <div class="preview-wrap">
-        <img id="preview" alt="選択した写真のプレビュー">
-      </div>
-
-      <div id="status-box" class="status-box" role="status">
+      <div id="status-box" class="status-box" role="status" hidden>
         <span id="status-text">準備中です</span>
         <progress id="progress" max="100" value="0"></progress>
       </div>
+      <p class="privacy-note">写真と読み取り結果はこの端末のブラウザ内だけに保存し、外部サーバーへ送信しません。</p>
+    </section>
 
-      <label class="field-label" for="serial-result">読み取り結果（編集できます）</label>
-      <input id="serial-result" class="serial-input" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="19" placeholder="XXXX XXXX XXXX XXXX">
-      <p id="validation-message" class="validation-message">16文字の英数字になるよう確認してください。</p>
-
-      <div class="button-grid">
-        <button id="copy-button" class="secondary-button" type="button">コピーだけ</button>
-        <button id="copy-open-button" class="primary-button" type="button">コピーして<br>入力ページへGO</button>
+    <section class="history-section" aria-labelledby="history-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="history-title">読み取り履歴</h2>
+          <p id="history-count">0件</p>
+        </div>
+        <button id="delete-all-button" class="text-button danger" type="button" hidden>すべての履歴を削除</button>
       </div>
-
-      <button id="retry-button" class="text-button" type="button">別の写真を読み取る</button>
+      <div id="empty-state" class="panel empty-state">
+        <p>まだ履歴はありません。上のボタンから撮影してください。</p>
+      </div>
+      <div id="history-list" class="history-list"></div>
     </section>
 
     <section class="panel help-panel">
@@ -54,13 +50,15 @@
         <li>ログイン情報は取得しません。</li>
         <li>自動入力・自動送信は行いません。</li>
         <li>読み取り結果は使用前に必ずご自身で確認してください。</li>
-        <li>履歴は保存しません。ページを閉じると結果は消えます。</li>
+        <li>履歴はSafariなど、現在使用しているブラウザ内に保存されます。</li>
+        <li>ブラウザのWebサイトデータを消すと履歴も消えます。</li>
       </ul>
       <p class="official-note">公式・関係各社とは関係ありません。</p>
     </section>
   </main>
 
   <canvas id="processing-canvas" hidden></canvas>
+  <canvas id="storage-canvas" hidden></canvas>
   <noscript>このページを使うにはJavaScriptを有効にしてください。</noscript>
 </body>
 </html>
